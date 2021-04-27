@@ -1,6 +1,13 @@
-controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
-    mySprite.vy = -100
+scene.onHitWall(SpriteKind.Player, function (sprite, location) {
+    jumpCount = 0
 })
+controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (jumpCount < 2) {
+        mySprite.vy = -100
+        jumpCount += 1
+    }
+})
+let jumpCount = 0
 let mySprite: Sprite = null
 tiles.setTilemap(tilemap`level1`)
 mySprite = sprites.create(img`
@@ -23,6 +30,7 @@ mySprite = sprites.create(img`
     `, SpriteKind.Player)
 controller.moveSprite(mySprite, 100, 0)
 scene.cameraFollowSprite(mySprite)
+jumpCount = 0
 forever(function () {
     mySprite.ay = 200
 })
