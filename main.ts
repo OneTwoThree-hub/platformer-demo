@@ -6,10 +6,10 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 function level2 () {
     tiles.setTilemap(tilemap`level0`)
-    tiles.placeOnTile(mySprite, tiles.getTileLocation(6, 6))
+    tiles.placeOnTile(mySprite, tiles.getTileLocation(5, 6))
 }
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.hazardLava1, function (sprite, location) {
-    tiles.placeOnTile(mySprite, tiles.getTileLocation(6, 6))
+    tiles.placeOnTile(mySprite, tiles.getTileLocation(5, 6))
     info.changeLifeBy(-1)
 })
 info.onLifeZero(function () {
@@ -142,7 +142,7 @@ scene.setBackgroundImage(img`
     bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
     bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
     `)
-tiles.setTilemap(tilemap`level1`)
+tiles.setTilemap(tilemap`level0`)
 mySprite = sprites.create(img`
     . . . . . . f f f f . . . . . . 
     . . . . f f f 2 2 f f f . . . . 
@@ -164,7 +164,7 @@ mySprite = sprites.create(img`
 info.setLife(3)
 controller.moveSprite(mySprite, 100, 0)
 scene.cameraFollowSprite(mySprite)
-tiles.placeOnTile(mySprite, tiles.getTileLocation(6, 6))
+tiles.placeOnTile(mySprite, tiles.getTileLocation(5, 6))
 let lava = sprites.create(img`
     ........................
     ........................
